@@ -1,11 +1,12 @@
+const branch = require('git-branch')
 const vscode = require('vscode')
 
 function activate(context) {
   let disposable = vscode.commands.registerCommand(
-    'extension.sayHello',
-    function() {
+    'extension.printBranch',
+    () => {
       // Display a message box to the user
-      vscode.window.showInformationMessage('Hello World!')
+      vscode.window.showInformationMessage(branch.sync())
     }
   )
 
